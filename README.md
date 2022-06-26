@@ -48,12 +48,12 @@ By clicking on specific movie opens about component with info about the movie. Y
 
 ## Concerns
 
-1. when we getting data from specific movie by id we getting full information about movie, but if we getting list of popular movies the data about movie twice less and
+1. When we getting data from specific movie by id we getting full information about movie, but if we getting list of popular movies the data about movie twice less and
 some properties has not the same data. For example, genres: {id:number, name: string} and genre_ids with Array<number>.
-solved: by using different movie interfaces and additional action
+Solved: by using different movie interfaces and additional action
   
- 2. i faced server restriction when you can't reach 501 page - only 500 or less. You choosing the last page and getting error.
- Thats means you have more data but can't get it
- solved partially: by setting max count of results 10000 (500pages * 20 results)
+ 2. I faced server restriction when you can't reach 501 page - only 500 or less. You choosing the last page and getting error.
+ Thats means you have more data but can't get it.
+ Solved partially: by setting max count of results 10000 (500pages * 20 results).
   
  
