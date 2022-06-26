@@ -1,0 +1,47 @@
+<div class="movieInfo">
+  <div>
+    <img
+      [src]="movie.backdrop_path ? imagePrefix + movie.backdrop_path : noImage"
+    />
+  </div>
+  <div class="rightBlock">
+    <p>
+      <strong>Title:</strong>
+      <span> {{ movie.original_title }}</span>
+    </p>
+    <p>
+      <strong>Original language:</strong>
+      <span>{{ movie.original_language }}</span>
+    </p>
+    <p>
+      <strong>Overview:</strong>
+      <span>{{ movie.overview }}</span>
+    </p>
+    <p>
+      <strong>Popularity: </strong>
+      <span>{{ movie.popularity }}</span>
+    </p>
+    <p>
+      <strong>Release date:</strong>
+      <span>{{ movie.release_date | date }}</span>
+    </p>
+    <p>
+      <strong>Genres:</strong>
+      <span class="genre" *ngFor="let genre of movie.genres">{{
+        genre.name
+      }}</span>
+    </p>
+    <p>
+      <strong>Adult:</strong>
+      <span>{{ movie.adult ? "Yes" : "No" }}</span>
+    </p>
+    <p>
+      <strong>Vote average:</strong>
+      <span>{{ movie.vote_average }}</span>
+    </p>
+    <p>
+      <strong>Vote count:</strong>
+      <span>{{ movie.vote_count }}</span>
+    </p>
+  </div>
+</div>

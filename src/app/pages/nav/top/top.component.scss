@@ -1,0 +1,17 @@
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+
+  p {
+    margin-right: 2rem;
+    color: wheat;
+  }
+
+  img {
+    height: 4rem;
+    cursor: pointer;
+  }
+}

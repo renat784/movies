@@ -1,0 +1,25 @@
+<mat-card (click)="onClick()" class="example-card">
+  <div>
+    <img
+      mat-card-image
+      [src]="backdrop_path ? imagePrefix + backdrop_path : noImage"
+      alt="movie poster"
+    />
+  </div>
+
+  <div class="rightPart">
+    <mat-card-title> {{ title }}</mat-card-title>
+    <mat-card-content>
+      <p>Release date: {{ release_date | date }}</p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <mat-chip-list>
+        <mat-chip *ngFor="let genre of genres">
+          {{ genre }}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-card-actions>
+    <mat-card-footer> </mat-card-footer>
+  </div>
+</mat-card>

@@ -1,0 +1,51 @@
+<div class="movies">
+  <div class="search">
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Search movies</mat-label>
+
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="searchText"
+        (input)="searchMovie()"
+      />
+
+      <button
+        *ngIf="searchText"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="searchText = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <a class="linkBackToMovies" *ngIf="showBackToMovies" (click)="backToMovies()">
+    <mat-icon>arrow_back</mat-icon>
+    <span>Go back to Movies</span></a
+  >
+
+  <div class="movies-list">
+    <app-preview-movie
+      *ngFor="let movie of movies | async"
+      [id]="movie.id"
+      [title]="movie.title"
+      [release_date]="movie.release_date"
+      [backdrop_path]="movie.backdrop_path"
+      [genres]="getGenresName(movie.genre_ids)"
+    ></app-preview-movie>
+  </div>
+
+  <mat-paginator
+    aria-label="Select page"
+    [length]="
+      total_results > MAX_RESULTS_LENGTH ? MAX_RESULTS_LENGTH : total_results
+    "
+    [pageSize]="20"
+    [showFirstLastButtons]="true"
+    (page)="pageChanged($event)"
+  >
+  </mat-paginator>
+</div>

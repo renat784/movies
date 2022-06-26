@@ -1,0 +1,28 @@
+.movies {
+  .linkBackToMovies {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: blue;
+    position: absolute;
+    top: 8rem;
+    left: 10rem;
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    .example-form-field {
+      width: 25rem;
+    }
+  }
+
+  .movies-list {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}

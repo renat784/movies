@@ -1,0 +1,6 @@
+<ng-container *ngIf="movie | async as movieInfo; else noMovieTemplate">
+  <app-movie [movie]="movieInfo"></app-movie>
+</ng-container>
+<ng-template #noMovieTemplate>
+  <p>No info about this movie</p>
+</ng-template>
