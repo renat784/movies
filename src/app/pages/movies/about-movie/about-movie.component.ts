@@ -21,8 +21,12 @@ export class AboutMovieComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.pipe(takeUntil(this.destroys)).subscribe((i: Params) => {
       const id = i['id'];
-      this.movie = this.moviesService.findMovie(id);
+      this.foo(id);
     });
+  }
+
+  foo(id: any) {
+    this.movie = this.moviesService.findMovie(id);
   }
 
   ngOnDestroy(): void {
