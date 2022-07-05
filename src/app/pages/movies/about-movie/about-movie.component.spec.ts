@@ -38,7 +38,7 @@ fdescribe('AboutMovieComponent', () => {
 
   it('app-movie should be if we HAVE movie', () => {
     component.movie = of({} as Movie);
-    // wdwdwdw
+
     fixture.detectChanges();
     expect(getWrapperDebugElement('app-movie')).toBeTruthy();
   });
