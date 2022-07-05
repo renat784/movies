@@ -1,27 +1,59 @@
-# Movies
+# The Movies
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+The application for watching list of popular movies (updates daily) from The Movie Database API, you can search movie by name or click on it and read more abt specific movie. On each page located 20 movies.
 
-## Development server
+![example](https://user-images.githubusercontent.com/59844722/175820055-45e7a508-5728-4ad5-b68b-9003e887304b.jpg)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Thechnologies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular 14,
+Angular Material,
+rxjs,
+The Movie Database API
 
-## Build
+## Presentation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can see how it looks https://supermegaprojectmovies.web.app/movies
 
-## Running unit tests
+## How to run
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+0. Clone project to your computer
+1. run "npm install" to install all modules
+2. run "npm start"
+3. Navigate to `http://localhost:4200/ 
+   The application will be there.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## How it works
 
-## Further help
+The application has a few components: list of movies, search field, about component, pagination.
+When we open the app, it's loading genres and popular movies from API's provided below
+https://developers.themoviedb.org/3/movies/get-popular-movies
+https://developers.themoviedb.org/3/genres
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Because of genres in Array<number> instead of Array<string> we need to use list of all genres and change number
+of genre to string in movie object before it showed in UI.
+
+Search field on top of the page starting searching for movies immidiatly after typing
+The API https://developers.themoviedb.org/3/search/search-movies
+
+It's replacing popular movies list on page
+
+You can navigate from 1 page of results to another by using pagination at bottom of page.
+
+By clicking on specific movie opens about component with info about the movie. You can return to main page by clicking on logo at top-left part of screen or use you mouse and choose "Back" option.
+
+
+
+## Concerns
+
+1. When we getting data from specific movie by id we getting full information about movie, but if we getting list of popular movies the data about movie twice less and
+some properties has not the same data. For example, genres: {id:number, name: string} and genre_ids with Array<number>.
+Solved: by using different movie interfaces and additional action
+  
+ 2. I faced server restriction when you can't reach 501 page - only 500 or less. You choosing the last page and getting error.
+ Thats means you have more data but can't get it.
+ Solved partially: by setting max count of results 10000 (500pages * 20 results).
+  
+ 
